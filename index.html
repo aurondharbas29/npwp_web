@@ -15,13 +15,13 @@ button{font:inherit}
 .app:before,.app:after{content:"";position:absolute;border:1px solid #d5b86a2c;border-radius:50%;pointer-events:none}
 .app:before{width:38rem;height:38rem;right:-18rem;top:-22rem;box-shadow:0 0 0 35px #d5b86a0a,0 0 0 75px #d5b86a07}
 .app:after{width:35rem;height:35rem;left:-20rem;bottom:-24rem;box-shadow:0 0 0 40px #ffffff06,0 0 0 80px #ffffff04}
-.progress{height:4px;position:absolute;top:0;left:0;right:0;z-index:20;background:#ffffff15}
+.progress{display:none}
 .progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .55s ease}
-.topbar{position:absolute;z-index:5;top:0;left:0;right:0;padding:22px 30px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.topbar{display:none}
 .brand{font-size:.76rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#e6ce87}
 .counter{font-size:.84rem;color:#d9e1d8}
 .stage{position:relative;z-index:2;height:100%;display:grid;place-items:center;padding:84px 28px 118px;perspective:1200px}
-.slide{width:min(1120px,100%);max-height:100%;overflow:auto;scrollbar-width:thin;scrollbar-color:#d5b86a55 transparent;text-align:center;animation:slideIn .62s cubic-bezier(.2,.75,.25,1) both}
+.slide{width:min(1120px,100%);max-height:100%;overflow:auto;scrollbar-width:thin;scrollbar-color:#d5b86a55 transparent;text-align:center;animation:slideIn .82s cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity,filter}
 .slide.out-next{animation:slideOutNext .24s ease both}
 .slide.out-prev{animation:slideOutPrev .24s ease both}
 .kicker{color:var(--gold);font-size:.76rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-bottom:20px}
@@ -52,10 +52,10 @@ video{display:block;width:100%;max-height:58vh;aspect-ratio:16/9;object-fit:cont
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
 .hint{position:absolute;z-index:4;bottom:83px;left:10px;right:10px;text-align:center;color:#b8c4b7;font-size:.73rem;pointer-events:none}
 .toast{display:none;position:absolute;z-index:30;top:72px;left:50%;transform:translateX(-50%);max-width:90vw;padding:11px 16px;border:1px solid #ffffff2b;border-radius:12px;background:#08130fee;color:white;font-size:.86rem}
-@keyframes slideIn{from{opacity:0;transform:translate3d(45px,12px,0) scale(.985);filter:blur(5px)}to{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
-@keyframes slideOutNext{to{opacity:0;transform:translate3d(-35px,0,0) scale(.99);filter:blur(4px)}}
-@keyframes slideOutPrev{to{opacity:0;transform:translate3d(35px,0,0) scale(.99);filter:blur(4px)}}
-@media(max-width:650px){.topbar{padding:15px 16px}.brand{font-size:.62rem;letter-spacing:.12em}.counter{font-size:.75rem}.stage{padding:78px 13px 150px}.card{padding:22px 17px}.controls{gap:6px;padding:13px 8px 16px}.btn{padding:10px 12px;font-size:.82rem}.hint{bottom:124px;font-size:.68rem}video{max-height:42vh}.bodycopy{line-height:1.75}.list li{padding:12px}}
+@keyframes slideIn{0%{opacity:0;transform:translate3d(34px,8px,0) scale(.975);filter:blur(8px)}55%{opacity:.8;filter:blur(2px)}100%{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes slideOutNext{to{opacity:0;transform:translate3d(-24px,0,0) scale(.985);filter:blur(6px)}}
+@keyframes slideOutPrev{to{opacity:0;transform:translate3d(24px,0,0) scale(.985);filter:blur(6px)}}
+@media(max-width:650px){.stage{padding:24px 13px 145px}.card{padding:22px 17px;border-radius:18px}.controls{gap:6px;padding:13px 8px 16px}.btn{padding:10px 12px;font-size:.82rem}.hint{bottom:124px;font-size:.68rem}video{max-height:40vh}.bodycopy{line-height:1.7}.list li{padding:12px;font-size:.92rem}.kicker{font-size:.66rem;letter-spacing:.18em;margin-bottom:14px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -107,14 +107,16 @@ const slides = [
  {type:"text", kicker:"Agenda Berikutnya", title:"Pembacaan Doa", body:"PEMBACAAN DOA"},
  {type:"text", kicker:"Penutup Acara", title:"Rangkaian Acara Telah Selesai", body:"Demikianlah Rangkaian / ACARA / SERAH TERIMA JABATAN / KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA INTEGRATED TERMINAL BITUNG DAN SALES AREA SULTRA / telah selesai dilaksanakan / pada hari ini"},
  {type:"text", kicker:"Photo Bersama", title:"Sesi Photo Bersama", body:"Selanjutnya adalah sesi PHOTO BERSAMA, dimohon untuk yang namanya kami panggil untuk raise hand agar memudahkan pencarian", note:"(Operator bersiap pin akun nama-nama yang disebut dan screenshoot layar)"},
- {type:"list", kicker:"Photo Bersama", title:"Urutan Foto Bersama", items:[
- "Ibu Reny Deny Sukendar bersama Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra",
- "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra, bersama Bapak Penasihat Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Sales Area SULTRA/ Bapak Surya Agung",
- "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra bersama Bidang Organisasi Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
- "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu-ibu Ketua Unsur Pelaksana Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
- "Ibu Reny Deny Sukendar, Ibu Wina Agung Surya, Ibu Nila Hendra, dan Ibu-ibu Ketua Unsur Pelaksana Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
- "Foto Bersama Seluruh tamu undangan"
- ]},
+ {type:"text", kicker:"Sesi Foto 1 dari 10", title:"Penyerahan Cendera Mata", body:"Ibu Reny Deny Sukendar\n bersama Ibu Purry Angga"},
+ {type:"text", kicker:"Sesi Foto 2 dari 10", title:"Penyerahan Cendera Mata", body:"Ibu Reny Deny Sukendar\n bersama Ibu Wina Agung"},
+ {type:"text", kicker:"Sesi Foto 3 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Purry Angga\nIbu Wina Agung\nIbu Nila Hendra"},
+ {type:"text", kicker:"Sesi Foto 4 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Purry Angga\nIbu Wina Agung"},
+ {type:"text", kicker:"Sesi Foto 5 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Purry Angga\nIbu Wina Agung\nBapak Agung Surya Pranata"},
+ {type:"text", kicker:"Sesi Foto 6 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Wina Agung\nIbu Nila Hendra"},
+ {type:"text", kicker:"Sesi Foto 7 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Wina Agung\nIbu Nila Hendra\nBapak Hendra Saputra"},
+ {type:"text", kicker:"Sesi Foto 8 dari 10", title:"Foto Bersama Bidang Organisasi", body:"Ibu Reny Deny Sukendar\nIbu Wina Agung\nIbu Nila Hendra\nIbu Purry Angga\nBidang Organisasi PWP Sulawesi"},
+ {type:"text", kicker:"Sesi Foto 9 dari 10", title:"Foto Bersama", body:"Ibu Reny Deny Sukendar\nIbu Purry Angga\nIbu Wina Agung\nIbu Nila Hendra\nGita Casan\nFebri Arman"},
+ {type:"text", kicker:"Sesi Foto 10 dari 10", title:"Foto Bersama Seluruh Tamu Undangan", body:"Mohon seluruh tamu undangan bersiap untuk sesi foto bersama."},
  {type:"text", kicker:"Ucapan Terima Kasih", title:"Terima Kasih", body:"Atas kehadiran Ibu sekalian dalam memenuhi Undangan ini, kami mengucapkan terima kasih. Kami mohon maaf apabila dalam pelaksanaan acara ini terdapat hal-hal yang kurang berkenan."},
  {type:"text", kicker:"Salam Penutup", title:"Wassalamualaikum wr. wb.", body:"Selamat siang.\nOm Shanti, Shanti"}
 ];
