@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17251b">
+<title>Sertijab Ketua PWP SA SULUTGO &amp; SA SULTRA</title>
+<style>
+:root{--green:#173c2a;--deep:#0c2017;--cream:#f4f0df;--gold:#d5b86a;--ink:#1d2b21;--muted:#d8dfd7;--white:#fffdf5}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;font-family:Inter,"Segoe UI",Arial,sans-serif;background:#0b1711;color:var(--white)}
+body{overflow:hidden}
+button{font:inherit}
+.app{height:100dvh;min-height:100vh;position:relative;overflow:hidden;background:radial-gradient(ellipse at 12% 12%,#2d5940 0,transparent 44%),radial-gradient(ellipse at 88% 86%,#4d4a2a 0,transparent 35%),linear-gradient(135deg,#10271b,#142b20 55%,#101a14)}
+.app:before,.app:after{content:"";position:absolute;border:1px solid #d5b86a2c;border-radius:50%;pointer-events:none}
+.app:before{width:38rem;height:38rem;right:-18rem;top:-22rem;box-shadow:0 0 0 35px #d5b86a0a,0 0 0 75px #d5b86a07}
+.app:after{width:35rem;height:35rem;left:-20rem;bottom:-24rem;box-shadow:0 0 0 40px #ffffff06,0 0 0 80px #ffffff04}
+.progress{height:4px;position:absolute;top:0;left:0;right:0;z-index:20;background:#ffffff15}
+.progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .55s ease}
+.topbar{position:absolute;z-index:5;top:0;left:0;right:0;padding:22px 30px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-size:.76rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#e6ce87}
+.counter{font-size:.84rem;color:#d9e1d8}
+.stage{position:relative;z-index:2;height:100%;display:grid;place-items:center;padding:84px 28px 118px;perspective:1200px}
+.slide{width:min(1120px,100%);max-height:100%;overflow:auto;scrollbar-width:thin;scrollbar-color:#d5b86a55 transparent;text-align:center;animation:slideIn .62s cubic-bezier(.2,.75,.25,1) both}
+.slide.out-next{animation:slideOutNext .24s ease both}
+.slide.out-prev{animation:slideOutPrev .24s ease both}
+.kicker{color:var(--gold);font-size:.76rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-bottom:20px}
+h1{font-size:clamp(2.15rem,5.6vw,5.3rem);line-height:1.08;letter-spacing:-.045em;margin:0 auto 22px;max-width:1050px;text-wrap:balance}
+h2{font-size:clamp(1.45rem,3vw,2.6rem);line-height:1.2;margin:0 auto 22px;max-width:1000px}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:25px auto}
+.rule:before,.rule:after{content:"";width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.rule:after{transform:scaleX(-1)}
+.bodycopy{max-width:880px;margin:0 auto;color:#e0e6dc;font-size:clamp(1rem,1.75vw,1.28rem);line-height:1.9;white-space:pre-line;text-wrap:pretty}
+.smallcopy{font-size:.9rem;color:#cbd5ca;line-height:1.7}
+.card{max-width:940px;margin:0 auto;padding:clamp(24px,4vw,48px);border:1px solid #ffffff20;border-radius:24px;background:linear-gradient(145deg,#ffffff0d,#ffffff04);box-shadow:0 24px 80px #0003;backdrop-filter:blur(8px)}
+.callout{display:inline-block;margin-top:24px;padding:11px 18px;border:1px solid #d5b86a66;border-radius:999px;color:#f1d993;font-size:.82rem;letter-spacing:.05em}
+.title-slide .eyebrow{font-size:.8rem;letter-spacing:.3em;color:#e6ce87;font-weight:800;margin-bottom:25px}
+.title-slide h1{font-size:clamp(2.1rem,5.4vw,5.1rem)}
+.title-slide .sub{font-size:clamp(1rem,2vw,1.35rem);line-height:1.8;color:#e0e6dc;letter-spacing:.04em}
+.title-slide .date{margin-top:26px;color:#f0d991;font-weight:750;letter-spacing:.13em;font-size:.92rem}
+.video-frame{width:min(100%,1050px);margin:0 auto;border:1px solid #ffffff26;border-radius:20px;overflow:hidden;background:#050705;box-shadow:0 24px 90px #0008}
+video{display:block;width:100%;max-height:58vh;aspect-ratio:16/9;object-fit:contain;background:#050705}
+.video-note{padding:13px 18px;text-align:left;background:#ffffff09;color:#d7dfd5;font-size:.88rem}
+.video-status{display:none;padding:12px 18px;text-align:left;background:#3b3020;color:#ffe4a0;font-size:.88rem;line-height:1.6}
+.list{list-style:none;padding:0;margin:24px auto 0;max-width:900px;text-align:left}
+.list li{padding:14px 18px;margin:10px 0;border:1px solid #ffffff1b;background:#ffffff08;border-radius:14px;color:#e7ebe3;line-height:1.7}
+.list li:before{content:"✦";color:var(--gold);margin-right:12px}
+.controls{position:absolute;z-index:10;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap;padding:18px 20px 22px;background:linear-gradient(transparent,#09140ff0)}
+.btn{border:1px solid #ffffff30;border-radius:999px;padding:11px 17px;background:#ffffff0d;color:#fffdf5;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);background:#ffffff1c;border-color:#d5b86a88}
+.btn.primary{background:var(--gold);color:#172219;border-color:var(--gold);font-weight:800}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.hint{position:absolute;z-index:4;bottom:83px;left:10px;right:10px;text-align:center;color:#b8c4b7;font-size:.73rem;pointer-events:none}
+.toast{display:none;position:absolute;z-index:30;top:72px;left:50%;transform:translateX(-50%);max-width:90vw;padding:11px 16px;border:1px solid #ffffff2b;border-radius:12px;background:#08130fee;color:white;font-size:.86rem}
+@keyframes slideIn{from{opacity:0;transform:translate3d(45px,12px,0) scale(.985);filter:blur(5px)}to{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+@keyframes slideOutNext{to{opacity:0;transform:translate3d(-35px,0,0) scale(.99);filter:blur(4px)}}
+@keyframes slideOutPrev{to{opacity:0;transform:translate3d(35px,0,0) scale(.99);filter:blur(4px)}}
+@media(max-width:650px){.topbar{padding:15px 16px}.brand{font-size:.62rem;letter-spacing:.12em}.counter{font-size:.75rem}.stage{padding:78px 13px 150px}.card{padding:22px 17px}.controls{gap:6px;padding:13px 8px 16px}.btn{padding:10px 12px;font-size:.82rem}.hint{bottom:124px;font-size:.68rem}video{max-height:42vh}.bodycopy{line-height:1.75}.list li{padding:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="progress"><span id="progress"></span></div>
+  <header class="topbar"><div class="brand">Momen • Pengabdian • Harapan</div><div class="counter" id="counter">Slide 1 dari 1</div></header>
+  <div class="toast" id="toast" role="status"></div>
+  <main class="stage" id="stage" aria-live="polite"></main>
+  <div class="hint">Pintasan: ← sebelumnya · → berikutnya · F layar penuh · Spasi putar/jeda video</div>
+  <nav class="controls" aria-label="Kontrol slide">
+    <button class="btn" id="prevBtn">← Kembali</button>
+    <button class="btn" id="playBtn" style="display:none">▶ Putar video</button>
+    <button class="btn" id="fullscreenBtn">⛶ Layar penuh</button>
+    <button class="btn primary" id="nextBtn">Lanjut →</button>
+  </nav>
+</div>
+<script>
+const slides = [
+ {type:"title", kicker:"Persatuan Wanita Patra", title:"SERAH TERIMA JABATAN", subtitle:"KETUA PERSATUAN WANITA PATRA TINGKAT WILAYAH\nPT PERTAMINA PATRA NIAGA\nSALES AREA SULUTGO DAN SALES AREA SULTRA", date:"MASA BAKTI 2024–2027", detail:"MAKASSAR • KAMIS, 22 OKTOBER 2026"},
+ {type:"text", kicker:"Pembukaan", title:"Selamat Datang", body:"(Sapa-sapa setiap tamu undangan yang sudah memasuki ruang rapat Zoom Meeting)\n\nDengan tidak mengurangi rasa hormat, kami mohon para undangan untuk mengaktifkan kamera dan me-non-aktifkan microfon selama acara berlangsung/ karena acara akan segera dimulai."},
+ {type:"text", kicker:"Salam Pembuka", title:"Assalamu’alaikum Warahmatullahi Wabarakatuh", body:"Selamat pagi,\nSalam sejahtera bagi kita semua,\nOm Swastiastu,\nNamo Buddhaya,\nSalam kebajikan."},
+ {type:"text", kicker:"Yang Terhormat", title:"Ketua Persatuan Wanita Patra", body:"Ketua Persatuan Wanita Patra / Tingkat Wilayah / PT Pertamina Patra Niaga Regional Sulawesi/ Ibu Reny Deny Sukendar."},
+ {type:"text", kicker:"Yang Kami Hormati", title:"Wakil Ketua Pendamping", body:"Wakil Ketua Pendamping beserta jajaran pengurus / Persatuan Wanita Patra / Tingkat Wilayah / PT Pertamina Patra Niaga Regional Sulawesi."},
+ {type:"text", kicker:"Yang Kami Hormati", title:"Ketua Unsur Pelaksana", body:"Ketua Unsur Pelaksana Persatuan Wanita Patra / Tingkat Wilayah / PT Pertamina Patra Niaga Regional Sulawesi beserta pengurus."},
+ {type:"text", kicker:"Yang Kami Hormati", title:"Tamu Undangan", body:"Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya dan Ibu Nila Hendra / serta tamu undangan yang kami muliakan."},
+ {type:"text", kicker:"Yang Kami Hormati", title:"Bapak Penasihat", body:"Bapak Penasihat Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Sales Area SULUTGO\n\nBapak Penasihat Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Sales Area SULTRA", note:"STOP SEBENTAR..."},
+ {type:"text", kicker:"Pengantar Acara", title:"Ungkapan Syukur", body:"Dengan mengucap rasa syukur / kehadirat Allah SWT / Tuhan Yang Maha Esa / yang memperkenankan kita melaksanakan acara / serah terima jabatan gabungan Ketua Persatuan Wanita Patra / Tingkat Wilayah PT Pertamina Patra Niaga / Sales Area SULUTGO dan Sales Area SULTRA."},
+ {type:"video", kicker:"Mengawali dengan Khidmat", title:"Menyanyikan Lagu Indonesia Raya", src:"videos/video-1.mp4", note:"Hadirin dimohon berdiri."},
+ {type:"video", kicker:"Lagu Organisasi", title:"Menyanyikan Hymne Persatuan Wanita Patra", src:"videos/himna-npwp.mp4", note:"Dilanjutkan dengan Hymne Persatuan Wanita Patra. Hadirin dimohon berdiri."},
+ {type:"text", kicker:"Setelah Lagu", title:"Hadirin Dipersilakan Duduk Kembali", body:"Hadirin dipersilahkan duduk kembali. (dirijen kembali ke posisi semula)"},
+ {type:"text", kicker:"Agenda Berikutnya", title:"Pembacaan Surat Keputusan", body:"PEMBACAAN SURAT KEPUTUSAN TENTANG / PEMBERHENTIAN DAN PENGANGKATAN/ KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA / SALES AREA SULUTGO DAN SALES AREA SULTRA / MASA BAKTI TAHUN 2024 – 2027\n\n(Pembacaan SKEP)"},
+ {type:"text", kicker:"Prosesi Serah Terima", title:"Penyerahan Surat Keputusan dan Piagam Penghargaan", body:"PENYERAHAN / SURAT KEPUTUSAN / DAN PIAGAM PENGHARGAAN KEPADA IBU PURRY ANGGA YUDHIWINATA", note:"(operator bersiap pin akun Ibu Reny, Ibu Purry dan Piagam Penghargaan kemudian screenshoot layar)"},
+ {type:"text", kicker:"Prosesi Serah Terima", title:"Penyerahan Surat Keputusan dan Piagam Penghargaan", body:"PENYERAHAN / SURAT KEPUTUSAN / DAN PIAGAM PENGHARGAAN KEPADA IBU WINA AGUNG SURYA", note:"(operator bersiap pin akun Ibu Reny, Ibu Wina dan Piagam Penghargaan kemudian screenshoot layar)"},
+ {type:"text", kicker:"Prosesi Serah Terima", title:"Penyerahan Surat Keputusan", body:"PENYERAHAN / SURAT KEPUTUSAN / KEPADA IBU WINA AGUNG SURYA", note:"(operator bersiap pin akun Ibu Reny, Ibu Wina dan Surat Keputusan kemudian screenshoot layar)"},
+ {type:"text", kicker:"Prosesi Serah Terima", title:"Penyerahan Surat Keputusan", body:"PENYERAHAN / SURAT KEPUTUSAN / KEPADA IBU NILA HENDRA", note:"(operator bersiap pin akun Ibu Reny, Ibu Nila dan Surat Keputusan kemudian screenshoot layar)"},
+ {type:"section", kicker:"Sales Area SULUTGO", title:"Serah Terima Jabatan", body:"SERAH TERIMA JABATAN KETUA PERSATUAN WANITA PATRA TINGKAT WILAYAH PT PERTAMINA PATRA NIAGA SALES AREA SULUTGO"},
+ {type:"text", kicker:"Sales Area SULUTGO", title:"Penandatanganan Berita Acara", body:"PENANDATANGANAN / BERITA ACARA SERAH TERIMA JABATAN DAN BERITA ACARA SERAH TERIMA ASET DAN KEUANGAN", note:"(operator bersiap pin akun Ibu Reny, Ibu Purry, Ibu Wina dan Berita Acara kemudian screenshoot layar)"},
+ {type:"text", kicker:"Sales Area SULUTGO", title:"Penyerahan Buku Memori", body:"PENYERAHAN BUKU MEMORI", note:"(operator bersiap pin akun Ibu Reny, Ibu Purry, Ibu Wina dan Memori kemudian screenshoot layar)"},
+ {type:"section", kicker:"Sales Area SULTRA", title:"Serah Terima Jabatan", body:"SERAH TERIMA JABATAN KETUA PERSATUAN WANITA PATRA TINGKAT WILAYAH PT PERTAMINA PATRA NIAGA SALES AREA SUTRA"},
+ {type:"text", kicker:"Sales Area SULTRA", title:"Penandatanganan Berita Acara", body:"PENANDATANGANAN / BERITA ACARA SERAH TERIMA JABATAN DAN BERITA ACARA SERAH TERIMA ASET DAN KEUANGAN", note:"(operator bersiap pin akun Ibu Reny, Ibu Wina, Ibu Nila dan Berita Acara kemudian screenshoot layar)"},
+ {type:"text", kicker:"Sales Area SULTRA", title:"Penyerahan Buku Memori", body:"PENYERAHAN BUKU MEMORI", note:"(operator bersiap pin akun Ibu Reny, Ibu Purry, Ibu Wina dan Memori kemudian screenshoot layar)"},
+ {type:"text", kicker:"Sambutan", title:"Ibu Purry Angga Yudhiwinata", body:"SAMBUTAN DARI IBU PURRY ANGGA YUDHIWINATA / SELAKU KETUA LAMA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA SALES AREA SULUTGO / DIPERSILAHKAN"},
+ {type:"text", kicker:"Sambutan", title:"Ibu Wina Agung Surya", body:"SAMBUTAN DARI IBU WINA AGUNG SURYA / SELAKU KETUA LAMA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA SALES AREA SULTRA / SEKALIGUS KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA SALES AREA SULUTGO / DIPERSILAHKAN"},
+ {type:"text", kicker:"Sambutan", title:"Ibu Nila Hendra", body:"SAMBUTAN DARI IBU NILA HENDRA / SELAKU KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA SALES AREA SULTRA / DIPERSILAHKAN"},
+ {type:"text", kicker:"Sambutan", title:"Ibu Reny Deny Sukendar", body:"SAMBUTAN DARI IBU RENY DENY SUKENDAR / SELAKU KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA REGIONAL SULAWESI DIPERSILAHKAN"},
+ {type:"video", kicker:"Lagu Organisasi", title:"Menyanyikan Mars Persatuan Wanita Patra", src:"videos/video-2.mp4", note:"Hadirin dimohon berdiri."},
+ {type:"text", kicker:"Setelah Lagu", title:"Hadirin Dipersilakan Duduk Kembali", body:"Hadirin dipersilahkan duduk kembali"},
+ {type:"text", kicker:"Agenda Berikutnya", title:"Pembacaan Doa", body:"PEMBACAAN DOA"},
+ {type:"text", kicker:"Penutup Acara", title:"Rangkaian Acara Telah Selesai", body:"Demikianlah Rangkaian / ACARA / SERAH TERIMA JABATAN / KETUA PERSATUAN WANITA PATRA / TINGKAT WILAYAH / PT PERTAMINA PATRA NIAGA INTEGRATED TERMINAL BITUNG DAN SALES AREA SULTRA / telah selesai dilaksanakan / pada hari ini"},
+ {type:"text", kicker:"Photo Bersama", title:"Sesi Photo Bersama", body:"Selanjutnya adalah sesi PHOTO BERSAMA, dimohon untuk yang namanya kami panggil untuk raise hand agar memudahkan pencarian", note:"(Operator bersiap pin akun nama-nama yang disebut dan screenshoot layar)"},
+ {type:"list", kicker:"Photo Bersama", title:"Urutan Foto Bersama", items:[
+ "Ibu Reny Deny Sukendar bersama Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra",
+ "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra, bersama Bapak Penasihat Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Sales Area SULTRA/ Bapak Surya Agung",
+ "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu Nila Hendra bersama Bidang Organisasi Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
+ "Ibu Reny Deny Sukendar, Ibu Purry Angga Yudhiwinata, Ibu Wina Agung Surya, dan Ibu-ibu Ketua Unsur Pelaksana Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
+ "Ibu Reny Deny Sukendar, Ibu Wina Agung Surya, Ibu Nila Hendra, dan Ibu-ibu Ketua Unsur Pelaksana Persatuan Wanita Patra Tingkat Wilayah PT Pertamina Patra Niaga Regional Sulawesi",
+ "Foto Bersama Seluruh tamu undangan"
+ ]},
+ {type:"text", kicker:"Ucapan Terima Kasih", title:"Terima Kasih", body:"Atas kehadiran Ibu sekalian dalam memenuhi Undangan ini, kami mengucapkan terima kasih. Kami mohon maaf apabila dalam pelaksanaan acara ini terdapat hal-hal yang kurang berkenan."},
+ {type:"text", kicker:"Salam Penutup", title:"Wassalamualaikum wr. wb.", body:"Selamat siang.\nOm Shanti, Shanti"}
+];
+let index=0, toastTimer;
+const stage=document.getElementById("stage"), counter=document.getElementById("counter"), progress=document.getElementById("progress"), prevBtn=document.getElementById("prevBtn"), nextBtn=document.getElementById("nextBtn"), playBtn=document.getElementById("playBtn"), toast=document.getElementById("toast");
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function notify(msg){toast.textContent=msg;toast.style.display="block";clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.style.display="none",4800)}
+function render(direction="next"){
+ const s=slides[index]; let content="";
+ if(s.type==="title") content=`<section class="slide title-slide"><div class="eyebrow">${esc(s.kicker)}</div><h1>${esc(s.title)}</h1><div class="rule">✦</div><div class="sub">${esc(s.subtitle).replace(/\n/g,"<br>")}</div><div class="date">${esc(s.date)}</div><div class="smallcopy" style="margin-top:12px">${esc(s.detail)}</div><div class="callout">Acara Serah Terima Jabatan</div></section>`;
+ else if(s.type==="video") content=`<section class="slide"><div class="kicker">${esc(s.kicker)}</div><h2>${esc(s.title)}</h2><div class="video-frame"><video id="mainVideo" controls playsinline preload="metadata"><source src="${esc(s.src)}" type="video/mp4">Browser Anda tidak mendukung pemutar video.</video><div class="video-status" id="videoStatus"></div>${s.note?`<div class="video-note">${esc(s.note)}</div>`:""}</div></section>`;
+ else if(s.type==="list") content=`<section class="slide"><div class="kicker">${esc(s.kicker)}</div><h2>${esc(s.title)}</h2><ul class="list">${s.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>`;
+ else content=`<section class="slide ${s.type==="section"?"title-slide":""}"><div class="kicker">${esc(s.kicker)}</div><div class="card"><h1 style="font-size:clamp(1.8rem,4.3vw,3.8rem)">${esc(s.title)}</h1><div class="rule">✦</div><div class="bodycopy">${esc(s.body)}</div>${s.note?`<div class="callout">${esc(s.note)}</div>`:""}</div></section>`;
+ stage.innerHTML=content;
+ const slide=stage.querySelector(".slide"); if(direction==="prev"){slide.style.animationName="slideIn";slide.style.transformOrigin="right center"}
+ counter.textContent=`Slide ${index+1} dari ${slides.length}`;
+ progress.style.width=`${(index+1)/slides.length*100}%`;
+ prevBtn.disabled=index===0; nextBtn.textContent=index===slides.length-1?"↻ Ulang dari awal":"Lanjut →";
+ playBtn.style.display=s.type==="video"?"":"none";playBtn.textContent="▶ Putar video";
+ const video=document.getElementById("mainVideo");
+ if(video){
+   const status=document.getElementById("videoStatus");
+   video.addEventListener("loadstart",()=>{status.style.display="block";status.textContent="Memuat video…"});
+   video.addEventListener("canplay",()=>status.style.display="none");
+   video.addEventListener("playing",()=>{status.style.display="none";playBtn.textContent="⏸ Jeda video"});
+   video.addEventListener("pause",()=>playBtn.textContent="▶ Putar video");
+   video.addEventListener("ended",()=>notify("Video selesai. Tekan Lanjut untuk meneruskan susunan acara."));
+   video.addEventListener("error",()=>{status.style.display="block";status.textContent="Video gagal dimuat. Pastikan file "+s.src+" tersedia dan format MP4 kompatibel (H.264/AAC).";notify("Video gagal dimuat. Periksa file video di folder videos.")});
+   video.load();
+ }
+}
+function goTo(next,direction){const old=document.getElementById("mainVideo");if(old){old.pause();old.removeAttribute("src");old.load()}index=Math.max(0,Math.min(next,slides.length-1));render(direction)}
+prevBtn.addEventListener("click",()=>{if(index>0)goTo(index-1,"prev")});
+nextBtn.addEventListener("click",()=>{if(index===slides.length-1){goTo(0,"next");notify("Kembali ke slide pembukaan.")}else goTo(index+1,"next")});
+playBtn.addEventListener("click",async()=>{const v=document.getElementById("mainVideo");if(!v)return;try{if(v.paused)await v.play();else v.pause()}catch(e){notify("Video belum siap. Tunggu sebentar, lalu tekan tombol putar pada video.")}});
+document.getElementById("fullscreenBtn").addEventListener("click",async()=>{try{if(!document.fullscreenElement)await document.getElementById("app").requestFullscreen();else await document.exitFullscreen()}catch(e){notify("Layar penuh tidak tersedia pada browser ini.")}});
+document.addEventListener("keydown",e=>{if(["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName))return;if(e.key==="ArrowRight"||e.key==="PageDown"){e.preventDefault();if(index<slides.length-1)goTo(index+1,"next")}else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();if(index>0)goTo(index-1,"prev")}else if(e.key.toLowerCase()==="f")document.getElementById("fullscreenBtn").click();else if(e.code==="Space"&&slides[index].type==="video"){e.preventDefault();playBtn.click()}else if(e.key==="Home")goTo(0,"prev");else if(e.key==="End")goTo(slides.length-1,"next")});
+let touchX=null;stage.addEventListener("touchstart",e=>touchX=e.changedTouches[0].screenX,{passive:true});stage.addEventListener("touchend",e=>{if(touchX===null)return;const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>70){if(dx<0&&index<slides.length-1)goTo(index+1,"next");else if(dx>0&&index>0)goTo(index-1,"prev")}touchX=null},{passive:true});
+render();
+</script>
+</body>
+</html>
